@@ -1,6 +1,7 @@
 [all:vars]
 ansible_port=22
 ansible_user=admin
+ssh_public_key=~/.ssh/id_rsa.pub
 
 [all]
 fab1   ansible_host=192.168.56.101
