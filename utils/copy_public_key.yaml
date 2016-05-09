@@ -1,0 +1,12 @@
+---
+- name: copy ssh public key to the switch
+  hosts: fabrics
+  gather_facts: no
+  tasks:
+    - authorized_key: user=admin key= "{{ lookup('file', ssh_public_key) }}"
+
+- name: copy ssh public key to the switch
+  hosts: spines
+  gather_facts: no
+  tasks:
+    - authorized_key: user=admin key= "{{ lookup('file', ssh_public_key) }}"
