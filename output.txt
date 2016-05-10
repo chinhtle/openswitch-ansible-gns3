@@ -1,0 +1,55 @@
+Using /home/openswitch/dc-on-gns3/ansible.cfg as config file
+Loaded callback default of type stdout, v2.0
+
+PLAYBOOK: site.yaml ************************************************************
+9 plays in site.yaml
+
+PLAY [check the switch version] ************************************************
+
+TASK [setup] *******************************************************************
+<192.168.1.2> ESTABLISH SSH CONNECTION FOR USER: admin
+<192.168.1.2> SSH: ansible.cfg set ssh_args: (-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+<192.168.1.2> SSH: ANSIBLE_HOST_KEY_CHECKING/host_key_checking disabled: (-o)(StrictHostKeyChecking=no)
+<192.168.1.2> SSH: ANSIBLE_REMOTE_PORT/remote_port/ansible_port set: (-o)(Port=22)
+<192.168.1.2> SSH: ansible_password/ansible_ssh_pass not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)
+<192.168.1.2> SSH: ANSIBLE_REMOTE_USER/remote_user/ansible_user/user/-u set: (-o)(User=admin)
+<192.168.1.2> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+<192.168.1.2> SSH: PlayContext set ssh_common_args: ()
+<192.168.1.2> SSH: PlayContext set ssh_extra_args: ()
+<192.168.1.2> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath=/home/openswitch/.ansible/cp/ansible-ssh-%h-%p-%r)
+<192.168.1.2> SSH: EXEC ssh -C -vvv -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o Port=22 -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o User=admin -o ConnectTimeout=10 -o ControlPath=/home/openswitch/.ansible/cp/ansible-ssh-%h-%p-%r 192.168.1.2 '/bin/sh -c '"'"'LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 LC_MESSAGES=en_US.UTF-8 /usr/bin/python'"'"''
+<192.168.1.1> ESTABLISH SSH CONNECTION FOR USER: admin
+<192.168.1.1> SSH: ansible.cfg set ssh_args: (-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+<192.168.1.1> SSH: ANSIBLE_HOST_KEY_CHECKING/host_key_checking disabled: (-o)(StrictHostKeyChecking=no)
+<192.168.1.1> SSH: ANSIBLE_REMOTE_PORT/remote_port/ansible_port set: (-o)(Port=22)
+<192.168.1.1> SSH: ansible_password/ansible_ssh_pass not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)
+<192.168.1.1> SSH: ANSIBLE_REMOTE_USER/remote_user/ansible_user/user/-u set: (-o)(User=admin)
+<192.168.1.1> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+<192.168.1.1> SSH: PlayContext set ssh_common_args: ()
+<192.168.1.1> SSH: PlayContext set ssh_extra_args: ()
+<192.168.1.1> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath=/home/openswitch/.ansible/cp/ansible-ssh-%h-%p-%r)
+<192.168.1.1> SSH: EXEC ssh -C -vvv -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o Port=22 -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o User=admin -o ConnectTimeout=10 -o ControlPath=/home/openswitch/.ansible/cp/ansible-ssh-%h-%p-%r 192.168.1.1 '/bin/sh -c '"'"'LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 LC_MESSAGES=en_US.UTF-8 /usr/bin/python'"'"''
+fatal: [switch1]: UNREACHABLE! => {"changed": false, "msg": "SSH Error: data could not be sent to the remote host. Make sure this host can be reached over ssh", "unreachable": true}
+fatal: [switch2]: UNREACHABLE! => {"changed": false, "msg": "SSH Error: data could not be sent to the remote host. Make sure this host can be reached over ssh", "unreachable": true}
+
+PLAY [L2/L3 configuration on fabric switches] **********************************
+
+PLAY [check the switch hostname] ***********************************************
+
+PLAY [check the switch configuration] ******************************************
+
+PLAY [BGP configuration on ops switches] ***************************************
+
+PLAY [check the switch configuration] ******************************************
+
+PLAY [wait for BGP peering up] *************************************************
+
+PLAY [check the BGP peering] ***************************************************
+
+PLAY [check the IP routing table (RIB)] ****************************************
+	to retry, use: --limit @site.retry
+
+PLAY RECAP *********************************************************************
+switch1                    : ok=0    changed=0    unreachable=1    failed=0   
+switch2                    : ok=0    changed=0    unreachable=1    failed=0   
+

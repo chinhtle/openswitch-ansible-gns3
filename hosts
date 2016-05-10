@@ -4,24 +4,11 @@ ansible_user=admin
 ssh_public_key=~/.ssh/id_rsa.pub
 
 [all]
-fab1   ansible_host=192.168.56.101
-spine1 ansible_host=192.168.56.102
-spine2 ansible_host=192.168.56.103
-leaf1  ansible_host=192.168.56.104
-leaf2  ansible_host=192.168.56.105
-leaf3  ansible_host=192.168.56.106
-leaf4  ansible_host=192.168.56.107
+switch1 ansible_host=192.168.1.1
+switch2 ansible_host=192.168.1.2
 
 [switches:children]
-fabrics
-spines
-leaves
+ops
 
-[fabrics]
-fab1
-
-[spines]
-spine[1:2]
-
-[leaves]
-leaf[1:4]
+[ops]
+switch[1:2]

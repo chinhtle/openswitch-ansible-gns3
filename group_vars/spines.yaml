@@ -1,4 +1,0 @@
----
-ops_bridges:
-  - name: bridge_normal
-    ports: []

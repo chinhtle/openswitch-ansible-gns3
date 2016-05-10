@@ -1,0 +1,17 @@
+---
+ops_vrfs:
+  - name: vrf_default
+    ports: [eth1, eth2]
+    bgp_routers:
+      - as_number: 6001
+        router_id: 20.4.1.1 
+        networks: [30.0.0.0/8]
+        neighbors:
+          - address: 20.4.1.2
+            remote_as: 6002
+
+ops_ports:
+  - name: eth1
+    ipv4_address: 20.4.1.1/24
+  - name: eth2
+    ipv4_address: 30.0.0.1/8

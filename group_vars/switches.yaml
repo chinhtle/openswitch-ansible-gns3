@@ -20,4 +20,3 @@ ops_system_hostname: "{{ inventory_hostname }}"
 ops_interfaces:
   - name: eth1
   - name: eth2
-  - name: eth3
